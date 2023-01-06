@@ -1,10 +1,3 @@
-# 1. Ask for first name -- this will be used for personalization within the welcome email
-# 2. Ask for email address
-# 3. Validate email is correct with @ and .
-# 4. If True, go to MailChimp account and trigger a Welcome email (API call)
-# api_key: "9aa12571048fe85bd0636b43eff87edf-us18"
-# "server": "us18"
-
 import re
 
 firstname = input('What is your name: ')
@@ -28,17 +21,17 @@ if email:
 
   mailchimp = MailchimpMarketing.Client()
   mailchimp.set_config({
-    "api_key": "9aa12571048fe85bd0636b43eff87edf-us18",
+    "api_key": "8dd9aded15d408903eb6619214166473-us18",
     "server": "us18"
   })
 
-  list_id = "4045e8295dAn"
+  list_id = "4045e8295d"
 
   member_info = {
-      "email_address": {email},
+      "email_address": email,
       "status": "subscribed",
       "merge_fields": {
-        "FNAME": {firstname}
+        "FNAME": firstname
       }
     }
 
